@@ -88,9 +88,9 @@ kable(missing_price)
 ```
 
 I decided to fix the missing values by including the past 3 years of rental data, if available.
-As a result, I included the following 15 past year rental data.
+As a result, I included the following 8 past year rental data.
 ```{r}
-missing_price_fixed
+missing_price_fixed_recent
 ```
 
 Now, we have around 57% of the total possible rental data in Singapore

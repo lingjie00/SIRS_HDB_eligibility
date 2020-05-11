@@ -40,6 +40,7 @@ rownames(missing_price_fixed) = NULL
 missing_price_fixed_recent_index = missing_price_fixed %>% select(quarter) %>%
   sapply(function(x) str_detect(x, pattern="201[7-9]"))
 missing_price_fixed_recent = missing_price_fixed[missing_price_fixed_recent_index,]
+rownames(missing_price_fixed_recent) = NULL
 
 rental_2020_fixed_na = rbind(rental_2020,missing_price_fixed_recent) %>% arrange(town,flat_type,quarter)
 rownames(rental_2020_fixed_na) = NULL #reset index
