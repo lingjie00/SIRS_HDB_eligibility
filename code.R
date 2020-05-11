@@ -34,6 +34,7 @@ for(i in 1:nrow(missing_price)){
     missing_price_fixed = rbind(missing_price_fixed,data)
   }
 }
+rownames(missing_price_fixed) = NULL
 
 #add only the recent 3 years data 2017:2019
 missing_price_fixed_recent_index = missing_price_fixed %>% select(quarter) %>%
@@ -46,13 +47,13 @@ rownames(rental_2020_fixed_na) = NULL #reset index
 #data visualisation
 plot_price_by_flat_type = rental_2020 %>% filter(!median_rent=="NA") %>% 
   ggplot(aes(x=flat_type,y=median_rent,col=town)) + 
-  geom_point() + scale_y_continuous(breaks=seq(min(rental$median_rent,na.rm=TRUE),max(rental$median_rent,na.rm=TRUE),by=200)) + 
-  ggtitle("Singapore rental price by flat type")
+  geom_jitter() + scale_y_continuous(breaks=seq(min(rental$median_rent,na.rm=TRUE),max(rental$median_rent,na.rm=TRUE),by=200)) + 
+  geom_hline(yintercept=1750) + ggtitle("Singapore rental price by flat type")
 
 plot_price_by_town = rental_2020 %>% filter(!median_rent=="NA") %>% mutate(town = reorder(town,median_rent,FUN=mean)) %>%
   ggplot(aes(x=town,y=median_rent,col=flat_type)) + 
   geom_point(aes(shape=flat_type)) + theme(axis.text.x=element_text(angle=90,hjust=1)) +
-  ggtitle("Singapore rental price by town")
+  geom_hline(yintercept=1750) + ggtitle("Singapore rental price by town")
 
 #filter to SIRS Eligibility, 2020 data
 rental_sirs = rental_2020 %>% filter(median_rent<=1750)
