@@ -5,3 +5,5 @@ One of the criteria for SIRS is individuals have to live in a property with an a
 I'm curious how many and what are the town in Singapore eligible for this
 
 #ongoing project
+#first draft done
+Please read report.pdf for first draft of report
