@@ -110,7 +110,7 @@ plot_price_by_flat_type
 ```
 
 Now we will look at the median rent breakdown by town.
-We see that except for 4 room flat in Woodlands, all other 3 room flats are not eligible for SIRS.
+We see that except for 4 room flat in Woodlands, all other 4 room flats are not eligible for SIRS.
 And about 1/3 of the 3 room flats are not eligible for SIRS as well.
 ```{r}
 plot_price_by_town
